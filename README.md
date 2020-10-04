@@ -197,7 +197,7 @@ HTTP(Hypertext Transfer Protocol)는 인터넷상에서 데이터를 주고 받�
    > PUT /dogs/3 HTTP/1.1   
    > { "name": "blue", "age": 5 }
    
- * #### HTTP POST과 PUT의 차이
+ * #### HTTP PUT과 PATCH의 차이
    PUT이 해당 자원의 전체를 교체하는 의미를 지니는 대신, PATCH는 일부를 변경한다는 의미를 지니기 때문에 최근 update 이벤트에서 PUT보다 더 의미적으로 적합하다고 평가받고 있다. 
    또한 PUT의 경우는 멱등하지만, PATCH의 경우는 멱등하지 않다. 
    PUT은 전체 자원을 업데이트 하기 때문에 동일 자원에 대해서 동일하게 PUT을 처리하는 경우 멱등하게 처리된다. 
