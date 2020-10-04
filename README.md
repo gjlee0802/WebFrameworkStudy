@@ -290,3 +290,17 @@ HTTP 프로토콜에는 비연결성(Connectionless)과 비상태성(Stateless)�
  * 쿠키와 세션 비교   
 ![Alt text](table_session_cookie.png)
 
+### MVC 패턴 (Model, View, Controller)
+프로젝트를 효율적으로 진행할 수 있도록 하는 일종의 디자인 패턴, 방법론   
+웹 어플리케이션을 데이터 처리, UI, 핸들러 등으로 나누고 각 컴포넌트에 집중할 수 있도록 하는 패턴   
+![Alt text](MVC.png)
+ * #### Model   
+   어플리케이션의 정보, 데이터를 담당하는 컴포넌트   
+   Ex) Database, Business Logic   
+   
+ * #### View   
+   사용자 인터페이스를 담당하는 컴포넌트   
+   Ex) Frontend   
+ * #### Controller   
+   Model과 View를 잇는 다리역할   
+   사용자 요청에 따라 Model를 적절히 조작, 검색 후 결과를 View를 통해 자용자에게 전달   
