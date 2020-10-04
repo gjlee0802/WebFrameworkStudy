@@ -199,6 +199,58 @@ HTTP 프로토콜에 관한 내용 조사, 공부
    반면 PATCH로 처리되는 경우 자원의 일부가 변경되기 때문에 멱등성을 보장할 수 없다.
 ![Alt text](HTTPMethod.jpeg)
 
-HTTP 프로토콜에 관한 내용 조사, 공부
-==============================
+웹 프레임워크에 대한 조사 공부 – Gin 웹 프레임워크
+=========================================
+![Alt text](8-3.jpg)
 
+
+
+1. 라우터: 웹 요청을 들어오면 URL 기반으로 특정 핸들러에 전달한다.
+
+2. 컨텍스트: 웹 요청의 처리 상태를 저장하는 공간이다.
+
+3. 미들웨어: 핸들러 로직을 수행하기 전에 공통으로 수행할 코드 조각이고 재사용이 가능하다. 미들웨어는 주로 다음과 같은 기능을 처리한다.
+* 로그 처리
+* 에러 처리
+* 정적 파일 처리
+* 사용자 인증과 권한 관리
+* 보안 처리
+* 세션 상태 관리
+* 웹 요청 정보 파싱
+
+4. 렌더러: 핸들러 로직 수행 결과를 다양한 형태(JSON, XML, Html Template 등)로 응답한다.
+
+### welcome! 을 출력하는 웹 어플리케이션 예제
+
+'''
+package main
+
+import (
+    “fmt”
+    “net/http”
+)
+ 
+func main() {
+    // “/” 경로로 접속했을 때 처리할 핸들러 함수 지정
+    http.HandleFunc(”/”, func(w http.ResponseWriter, r *http.Request) {
+        // “welcome!” 문자열을 화면에 출력
+        fmt.Fprintln(w, “welcome!”)
+    })
+ 
+
+    // 8080 포트로 웹 서버 구동
+    http.ListenAndServe(“:8080”, nil)
+}
+'''
+
+• func ListenAndServe(addr string, handler http.Handler) error
+웹 서버를 구동하고 웹 요청을 받아 처리한다. 웹 요청을 처리할 핸들러를 전달하지 않으면 http.DefaultServeMux가 동작한다.
+
+• func HandleFunc(pattern string, handler func(http.ResponseWriter, *http.Request))
+URL별로 요청을 처리할 핸들러 함수를 등록한다.
+
+• func Handle(pattern string, handler http.Handler)
+URL별로 요청을 처리할 핸들러를 등록한다.
+
+• func ServeFile(w http.ResponseWriter, r *http.Request, name string)
+웹 요청에 대한 응답으로 특정 경로의 파일 내용을 전달한다.
