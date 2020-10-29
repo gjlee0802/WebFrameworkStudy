@@ -304,3 +304,8 @@ HTTP 프로토콜에는 비연결성(Connectionless)과 비상태성(Stateless)�
  * #### Controller   
    Model과 View를 잇는 다리역할   
    사용자 요청에 따라 Model를 적절히 조작, 검색 후 결과를 View를 통해 자용자에게 전달   
+
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt-get update
+sudo apt-get install golang-go
+go get -u github.com/gin-gonic/gin
